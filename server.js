@@ -45,7 +45,7 @@ const server = http.createServer(async (req, res) => {
 server.listen(PORT, HOST, () => {
   const address = server.address();
   console.log(`NODE/CORE Interview Lab: http://localhost:${address.port}`);
-  console.log('Node.js core only — no Express and no runtime dependencies.');
+  console.log('Node.js core only â€” no Express and no runtime dependencies.');
 });
 
 function shutdown(signal) {
