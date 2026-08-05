@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="NODE/CORE is a Node.js core interview lab with adaptive levels, written technical challenges, rubric feedback, and non-repeating questions.">
+  <title>NODE/CORE — Interview Lab</title>
+  <link rel="stylesheet" href="/css/styles.css?v=4">
+  <script src="/js/app.js?v=4" defer></script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+
+  <main class="landing-screen" id="landingScreen">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="NODE CORE Interview Lab home">
+        <span class="brand-mark"></span>
+        <span><b>NODE/CORE</b><small>INTERVIEW LAB</small></span>
+      </a>
+      <div class="header-tools">
+        <button class="text-action" type="button" id="openHistory">PAST RESULTS</button>
+        <span class="core-status"><i></i> CORE MODULES ONLY</span>
+        <span class="version">v2.0</span>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow">NODE.JS CORE ENGINEERING ASSESSMENT</p>
+        <h1 id="heroTitle">Know Node.<span>Not just<br>frameworks.</span></h1>
+        <p class="hero-description">A rigorous technical interview built around the runtime itself. No Express. No shortcuts. Fresh questions, written reasoning, and useful feedback.</p>
+        <div class="hero-actions">
+          <button class="black-button" type="button" data-open-setup>BEGIN INTERVIEW <span>→</span></button>
+          <a class="outline-button" href="/api/study-guide">STUDY GUIDE <span>↓</span></a>
+        </div>
+      </div>
+
+      <div class="terminal-stage" aria-label="Interview configuration code preview">
+        <article class="terminal-card">
+          <header>
+            <span class="terminal-dots"><i></i><i></i><i></i></span>
+            <span>interview.config.js</span>
+          </header>
+          <pre><code><span class="line-no">01</span>  <b>module.exports</b> = {
+<span class="line-no">02</span>    runtime: <em>"node"</em>,
+<span class="line-no">03</span>    frameworks: <mark>[]</mark>,
+<span class="line-no">04</span>    difficulty: <em>"adaptive"</em>,
+<span class="line-no">05</span>    mode: <em>"strict"</em>,
+<span class="line-no">06</span>    unseenFirst: <strong>true</strong>
+<span class="line-no">07</span>  };</code></pre>
+          <footer><i></i> Interview environment ready</footer>
+        </article>
+      </div>
+    </section>
+
+    <footer class="landing-footer">
+      <p>Built for beginners, students, and professionals who want to understand Node.js deeply.</p>
+      <div class="landing-metrics">
+        <article><strong id="questionTotal">100</strong><span>UNIQUE<br>CHALLENGES</span></article>
+        <article><strong>10</strong><span>SKILL<br>DIMENSIONS</span></article>
+        <article><strong>4</strong><span>LEARNING<br>LEVELS</span></article>
+        <article><strong>0×</strong><span>REPEAT UNTIL<br>POOL ENDS</span></article>
+      </div>
+      <p class="module-line">HTTP · LIBUV · FS · STREAMS · EVENTS · COMMONJS · NPM</p>
+    </footer>
+  </main>
+
+  <dialog class="setup-dialog" id="setupDialog">
+    <form class="setup-form" id="setupForm" method="dialog">
+      <header class="setup-header">
+        <div>
+          <p class="eyebrow">INTERVIEW CONFIGURATION</p>
+          <h2>Choose your challenge.</h2>
+        </div>
+        <button type="button" class="icon-button" id="closeSetup" aria-label="Close setup">×</button>
+      </header>
+
+      <label class="field-label" for="learnerName">YOUR NAME</label>
+      <input class="text-field" id="learnerName" name="learnerName" type="text" maxlength="60" placeholder="Enter your name" autocomplete="name" required>
+
+      <fieldset>
+        <legend>LEVEL</legend>
+        <div class="level-grid">
+          <label><input type="radio" name="level" value="beginner"><span><b>FOUNDATION</b><small>Core terms, APIs, and confidence</small></span></label>
+          <label><input type="radio" name="level" value="intermediate"><span><b>PRACTITIONER</b><small>Applied reasoning and common traps</small></span></label>
+          <label><input type="radio" name="level" value="advanced"><span><b>SENIOR</b><small>Runtime details and production trade-offs</small></span></label>
+          <label><input type="radio" name="level" value="mixed" checked><span><b>ADAPTIVE</b><small>A balanced interview across all levels</small></span></label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>SESSION LENGTH</legend>
+        <div class="count-grid">
+          <label><input type="radio" name="count" value="5"><span><b>05</b><small>Quick check</small></span></label>
+          <label><input type="radio" name="count" value="8" checked><span><b>08</b><small>Deep dive</small></span></label>
+          <label><input type="radio" name="count" value="10"><span><b>10</b><small>Full map</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="setup-note">
+        <span>UNSEEN-FIRST ENGINE</span>
+        <p>Your learner ID stays in this browser. The Node.js server stores shown question IDs in JSON and avoids repeats until the selected pool is completed.</p>
+      </div>
+      <p class="form-status" id="setupStatus" role="status"></p>
+      <button class="black-button wide" type="submit">START INTERVIEW <span>→</span></button>
+    </form>
+  </dialog>
+
+  <section class="interview-screen" id="interviewScreen" aria-hidden="true">
+    <header class="interview-header">
+      <button class="brand brand-button" type="button" id="quitInterview" aria-label="Quit interview and return home">
+        <span class="brand-mark"></span>
+        <span><b>NODE/CORE</b><small>INTERVIEW LAB</small></span>
+      </button>
+      <div class="session-progress">
+        <div><span>SESSION PROGRESS</span><b id="sessionPosition">01 / 08</b></div>
+        <div class="progress-track"><i id="sessionProgressBar"></i></div>
+      </div>
+      <span class="interview-active"><i></i> INTERVIEW ACTIVE</span>
+    </header>
+
+    <div class="interview-layout">
+      <aside class="assessment-map">
+        <p>ASSESSMENT MAP</p>
+        <nav id="topicMap" aria-label="Node.js skill dimensions"></nav>
+        <div class="constraints">
+          <b>CONSTRAINTS</b>
+          <span>× Node.js core modules only</span>
+          <span>× No third-party packages</span>
+          <span>× Explain your reasoning</span>
+          <span>× Questions remain fresh</span>
+        </div>
+      </aside>
+
+      <main class="question-workspace">
+        <div class="question-meta">
+          <div><span id="questionType">THEORY</span><span id="questionLevel">INTERMEDIATE</span></div>
+          <small id="questionNumber">QUESTION 01</small>
+        </div>
+        <h1 id="questionTitle">Loading question…</h1>
+        <p class="question-prompt" id="questionPrompt"></p>
+
+        <article class="challenge-panel" id="challengePanel">
+          <header>
+            <span class="terminal-dots"><i></i><i></i><i></i></span>
+            <span id="codeFile">challenge.js</span>
+            <button type="button" id="copyCode">COPY</button>
+          </header>
+          <pre id="codeArea"><code id="questionCode"></code></pre>
+          <section class="requirements-panel">
+            <p>YOUR ANSWER MUST ADDRESS</p>
+            <div id="questionRequirements"></div>
+          </section>
+        </article>
+
+        <section class="answer-panel" id="answerPanel">
+          <div class="answer-label"><span>YOUR RESPONSE</span><span id="wordCount">0 WORDS</span></div>
+          <textarea id="answerInput" maxlength="20000" placeholder="Think aloud. Be precise about mechanisms, edge cases, and trade-offs…" spellcheck="true"></textarea>
+          <div class="answer-controls">
+            <span>CTRL + ENTER TO SUBMIT · RESPONSE AUTOSAVED</span>
+            <button class="submit-button" type="button" id="submitAnswer" disabled>SUBMIT ANSWER <span>→</span></button>
+          </div>
+        </section>
+
+        <section class="feedback-panel" id="feedbackPanel" hidden>
+          <div class="response-score"><small>RESPONSE SCORE</small><strong id="responseScore">0</strong><span>/100</span></div>
+          <div class="feedback-copy">
+            <h2 id="feedbackTitle">Important gaps remain.</h2>
+            <p id="feedbackNote"></p>
+            <button class="reveal-button" type="button" id="revealAnswer">▶ REVEAL SENIOR-LEVEL ANSWER</button>
+            <div class="senior-answer" id="seniorAnswer" hidden></div>
+          </div>
+          <button class="black-button next-button" type="button" id="nextQuestion">NEXT QUESTION <span>→</span></button>
+        </section>
+      </main>
+    </div>
+  </section>
+
+  <section class="results-screen" id="resultsScreen" aria-hidden="true">
+    <header class="result-header">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span><b>NODE/CORE</b><small>INTERVIEW LAB</small></span>
+      </div>
+      <button class="outline-button compact-button" type="button" id="restartTop">RESTART</button>
+    </header>
+
+    <main class="results-main">
+      <p class="eyebrow">ASSESSMENT COMPLETE</p>
+      <h1 id="resultHeadline">Back to the runtime.</h1>
+      <div class="score-ring" id="scoreRing"><strong id="finalScore">0</strong><span>/ 100</span></div>
+      <p class="result-description" id="resultDescription">Your score reflects technical vocabulary coverage and depth. Use the review to strengthen weak areas.</p>
+      <div class="result-meta">
+        <span id="resultLearner">LEARNER</span>
+        <span id="resultLevel">ADAPTIVE</span>
+        <span id="resultDuration">0M 0S</span>
+      </div>
+      <section class="topic-breakdown" id="topicBreakdown"></section>
+      <div class="result-actions">
+        <button class="black-button" type="button" id="takeAgain">TAKE IT AGAIN <span>↻</span></button>
+        <a class="outline-button" id="downloadReport" href="#">DOWNLOAD REPORT <span>↓</span></a>
+        <button class="outline-button" type="button" id="reviewAnswers">REVIEW ANSWERS</button>
+      </div>
+
+      <section class="review-section" id="reviewSection" hidden>
+        <header><p class="eyebrow">ANSWER REVIEW</p><h2>Learn from every question.</h2></header>
+        <div id="reviewList"></div>
+      </section>
+    </main>
+  </section>
+
+  <dialog class="history-dialog" id="historyDialog">
+    <section>
+      <header>
+        <div><p class="eyebrow">YOUR PROGRESS</p><h2>Past interview results.</h2></div>
+        <button type="button" class="icon-button" id="closeHistory" aria-label="Close history">×</button>
+      </header>
+      <div class="history-stats" id="historyStats"></div>
+      <div class="history-list" id="historyList"></div>
+      <footer>
+        <button class="outline-button" type="button" id="resetHistory">RESET QUESTION HISTORY</button>
+      </footer>
+    </section>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>

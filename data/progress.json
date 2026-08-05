@@ -1,0 +1,64 @@
+{
+  "learners": {
+    "test-learner-a": {
+      "name": "Test Learner",
+      "seenIds": [
+        "featured-http-trace",
+        "featured-loop-order",
+        "featured-fs-atomic",
+        "featured-stream-bugs",
+        "featured-events-emitter",
+        "featured-commonjs-cycle",
+        "featured-npm-ci",
+        "featured-debug-latency"
+      ],
+      "cycles": {
+        "mixed": 1
+      },
+      "updatedAt": "2026-08-05T20:34:25.473Z"
+    },
+    "test-no-repeat": {
+      "name": "Fresh Questions",
+      "seenIds": [
+        "featured-http-trace",
+        "featured-loop-order",
+        "featured-fs-atomic",
+        "featured-stream-bugs",
+        "featured-events-emitter",
+        "featured-commonjs-cycle",
+        "featured-npm-ci",
+        "featured-debug-latency",
+        "featured-quality-route",
+        "featured-problem-queue",
+        "open-012",
+        "open-003",
+        "open-025",
+        "open-033",
+        "open-042",
+        "open-055",
+        "open-061",
+        "open-077",
+        "quality-beginner-1",
+        "problem-beginner-1"
+      ],
+      "cycles": {
+        "mixed": 1
+      },
+      "updatedAt": "2026-08-05T20:34:25.535Z"
+    },
+    "test-complete": {
+      "name": "Complete Learner",
+      "seenIds": [
+        "featured-http-trace",
+        "featured-loop-order",
+        "featured-fs-atomic",
+        "featured-stream-bugs",
+        "featured-events-emitter"
+      ],
+      "cycles": {
+        "mixed": 1
+      },
+      "updatedAt": "2026-08-05T20:34:25.591Z"
+    }
+  }
+}

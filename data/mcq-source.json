@@ -1,0 +1,1122 @@
+[
+  {
+    "id": "q001",
+    "topic": "Runtime & Event Loop",
+    "level": "beginner",
+    "prompt": "What is the main job of the Node.js event loop?",
+    "options": [
+      "Compile JavaScript into CSS",
+      "Schedule callbacks for asynchronous work",
+      "Create database tables",
+      "Install npm packages"
+    ],
+    "answer": 1,
+    "explanation": "The event loop allows Node.js to continue handling work and later run callbacks when asynchronous operations complete."
+  },
+  {
+    "id": "q002",
+    "topic": "Runtime & Event Loop",
+    "level": "beginner",
+    "prompt": "Which operation is most likely to block the main Node.js thread?",
+    "options": [
+      "fs.readFile()",
+      "setTimeout()",
+      "fs.readFileSync()",
+      "Promise.resolve()"
+    ],
+    "answer": 2,
+    "explanation": "Synchronous file-system methods block the JavaScript thread until the operation finishes."
+  },
+  {
+    "id": "q003",
+    "topic": "Runtime & Event Loop",
+    "level": "beginner",
+    "prompt": "Why can Node.js handle many network connections efficiently?",
+    "options": [
+      "It creates a browser tab per request",
+      "It uses event-driven, non-blocking I/O",
+      "It runs every callback at the same time",
+      "It removes all errors automatically"
+    ],
+    "answer": 1,
+    "explanation": "Node.js relies on event-driven, non-blocking I/O so it can keep serving other work while I/O is pending."
+  },
+  {
+    "id": "q004",
+    "topic": "Runtime & Event Loop",
+    "level": "intermediate",
+    "prompt": "What does setTimeout(callback, 0) guarantee?",
+    "options": [
+      "The callback runs immediately",
+      "The callback runs before synchronous code",
+      "The callback becomes eligible after the minimum delay",
+      "The callback runs in a worker thread"
+    ],
+    "answer": 2,
+    "explanation": "A zero-millisecond timeout is only a minimum threshold. The callback runs when the timers phase can process it."
+  },
+  {
+    "id": "q005",
+    "topic": "Runtime & Event Loop",
+    "level": "intermediate",
+    "prompt": "Which statement about process.nextTick() is correct?",
+    "options": [
+      "It schedules work for the next browser frame",
+      "Its queue is processed before the event loop continues to another phase",
+      "It always runs after setImmediate()",
+      "It creates a new operating-system process"
+    ],
+    "answer": 1,
+    "explanation": "Node.js drains the nextTick queue before moving on to other event-loop work."
+  },
+  {
+    "id": "q006",
+    "topic": "Runtime & Event Loop",
+    "level": "intermediate",
+    "prompt": "What problem can a long CPU-heavy loop cause in a Node.js server?",
+    "options": [
+      "It blocks the event loop and delays other requests",
+      "It automatically creates more threads",
+      "It clears the module cache",
+      "It converts callbacks into promises"
+    ],
+    "answer": 0,
+    "explanation": "JavaScript normally runs on the main thread, so long CPU-bound work prevents the event loop from serving other callbacks."
+  },
+  {
+    "id": "q007",
+    "topic": "Runtime & Event Loop",
+    "level": "intermediate",
+    "prompt": "Which Node.js feature is designed for CPU-intensive JavaScript work?",
+    "options": [
+      "worker_threads",
+      "EventEmitter.once()",
+      "fs.appendFile()",
+      "http.STATUS_CODES"
+    ],
+    "answer": 0,
+    "explanation": "Worker threads can execute JavaScript in parallel and are useful for CPU-bound tasks."
+  },
+  {
+    "id": "q008",
+    "topic": "Runtime & Event Loop",
+    "level": "advanced",
+    "prompt": "Which library implements much of Node.js asynchronous I/O and the event loop?",
+    "options": [
+      "React",
+      "libuv",
+      "SQLite",
+      "V8 Inspector only"
+    ],
+    "answer": 1,
+    "explanation": "libuv provides the cross-platform event loop and asynchronous I/O support used by Node.js."
+  },
+  {
+    "id": "q009",
+    "topic": "Runtime & Event Loop",
+    "level": "advanced",
+    "prompt": "When may a Node.js process exit naturally?",
+    "options": [
+      "After exactly one event-loop cycle",
+      "When there are no active handles or pending work keeping the loop alive",
+      "Only after process.exit() is called",
+      "Whenever a promise is created"
+    ],
+    "answer": 1,
+    "explanation": "Node.js normally exits when the event loop has no active handles, requests, or other work keeping it alive."
+  },
+  {
+    "id": "q010",
+    "topic": "Runtime & Event Loop",
+    "level": "advanced",
+    "prompt": "Which ordering is generally correct for queues scheduled from the same synchronous turn in Node.js?",
+    "options": [
+      "Timers always run before process.nextTick",
+      "process.nextTick callbacks are drained before promise microtasks",
+      "setImmediate always runs before I/O callbacks",
+      "Promise callbacks run before all synchronous code"
+    ],
+    "answer": 1,
+    "explanation": "After the current JavaScript stack completes, Node.js drains the nextTick queue before processing the promise microtask queue and continuing through event-loop phases."
+  },
+  {
+    "id": "q011",
+    "topic": "HTTP",
+    "level": "beginner",
+    "prompt": "Which built-in module creates a basic web server without Express?",
+    "options": [
+      "node:http",
+      "node:path",
+      "node:events",
+      "node:buffer"
+    ],
+    "answer": 0,
+    "explanation": "The node:http module provides createServer() and the core HTTP request and response APIs."
+  },
+  {
+    "id": "q012",
+    "topic": "HTTP",
+    "level": "beginner",
+    "prompt": "What are the two main objects passed to an http.createServer() request listener?",
+    "options": [
+      "socket and file",
+      "request and response",
+      "route and controller",
+      "event and emitter"
+    ],
+    "answer": 1,
+    "explanation": "The callback receives an IncomingMessage request object and a ServerResponse response object."
+  },
+  {
+    "id": "q013",
+    "topic": "HTTP",
+    "level": "beginner",
+    "prompt": "Which method finishes an HTTP response?",
+    "options": [
+      "res.stop()",
+      "res.closeFile()",
+      "res.end()",
+      "res.finishRequest()"
+    ],
+    "answer": 2,
+    "explanation": "res.end() signals that the response is complete and may optionally send the final data."
+  },
+  {
+    "id": "q014",
+    "topic": "HTTP",
+    "level": "intermediate",
+    "prompt": "Where can you read the incoming HTTP method?",
+    "options": [
+      "req.method",
+      "req.statusCode",
+      "res.method",
+      "server.method"
+    ],
+    "answer": 0,
+    "explanation": "The IncomingMessage object exposes the request method through req.method."
+  },
+  {
+    "id": "q015",
+    "topic": "HTTP",
+    "level": "intermediate",
+    "prompt": "Which response status code means \u201cNot Found\u201d?",
+    "options": [
+      "200",
+      "201",
+      "404",
+      "500"
+    ],
+    "answer": 2,
+    "explanation": "HTTP 404 indicates that the requested resource could not be found."
+  },
+  {
+    "id": "q016",
+    "topic": "HTTP",
+    "level": "intermediate",
+    "prompt": "How should a Node.js server usually receive a request body?",
+    "options": [
+      "From req.body automatically",
+      "By listening to data and end events on the request stream",
+      "By reading res.body",
+      "By using module.exports"
+    ],
+    "answer": 1,
+    "explanation": "The request object is a readable stream, so body chunks arrive through data events and completion through end."
+  },
+  {
+    "id": "q017",
+    "topic": "HTTP",
+    "level": "intermediate",
+    "prompt": "Which header should be used when returning JSON?",
+    "options": [
+      "Content-Type: application/json",
+      "Accept: text/css",
+      "Location: npm",
+      "Connection: module"
+    ],
+    "answer": 0,
+    "explanation": "application/json tells the client that the response body contains JSON data."
+  },
+  {
+    "id": "q018",
+    "topic": "HTTP",
+    "level": "advanced",
+    "prompt": "What is a safe way to handle an unsupported HTTP method on an existing route?",
+    "options": [
+      "Return 405 Method Not Allowed",
+      "Always return 200",
+      "Crash the server",
+      "Delete package.json"
+    ],
+    "answer": 0,
+    "explanation": "HTTP 405 indicates that the resource exists but does not support the requested method."
+  },
+  {
+    "id": "q019",
+    "topic": "HTTP",
+    "level": "advanced",
+    "prompt": "Why should a server place a size limit on request bodies?",
+    "options": [
+      "To make CSS load faster",
+      "To reduce memory abuse and denial-of-service risk",
+      "To disable the event loop",
+      "To avoid using status codes"
+    ],
+    "answer": 1,
+    "explanation": "Without a limit, a client can send an excessively large body and consume server memory."
+  },
+  {
+    "id": "q020",
+    "topic": "HTTP",
+    "level": "advanced",
+    "prompt": "What does server.listen(port) do?",
+    "options": [
+      "Reads a JSON file",
+      "Starts accepting network connections on the port",
+      "Creates an npm script",
+      "Emits every custom event"
+    ],
+    "answer": 1,
+    "explanation": "listen() binds the server and begins accepting incoming connections."
+  },
+  {
+    "id": "q021",
+    "topic": "File System",
+    "level": "beginner",
+    "prompt": "Which built-in module is used to read and write files?",
+    "options": [
+      "node:fs",
+      "node:url",
+      "node:querystring",
+      "node:assert"
+    ],
+    "answer": 0,
+    "explanation": "The node:fs module provides file-system APIs."
+  },
+  {
+    "id": "q022",
+    "topic": "File System",
+    "level": "beginner",
+    "prompt": "Which method reads a whole file asynchronously?",
+    "options": [
+      "fs.readFile()",
+      "fs.readFileSyncOnly()",
+      "fs.listen()",
+      "fs.emit()"
+    ],
+    "answer": 0,
+    "explanation": "fs.readFile() reads the file without blocking the event loop while the operation is pending."
+  },
+  {
+    "id": "q023",
+    "topic": "File System",
+    "level": "beginner",
+    "prompt": "What does fs.writeFile() normally do when the target file already exists?",
+    "options": [
+      "Appends by default",
+      "Overwrites the file by default",
+      "Renames the file",
+      "Throws in every case"
+    ],
+    "answer": 1,
+    "explanation": "By default, writeFile replaces the existing contents unless a different flag is used."
+  },
+  {
+    "id": "q024",
+    "topic": "File System",
+    "level": "intermediate",
+    "prompt": "Which method is suitable for adding text to the end of a log file?",
+    "options": [
+      "fs.appendFile()",
+      "fs.unlink()",
+      "fs.stat()",
+      "fs.realpath()"
+    ],
+    "answer": 0,
+    "explanation": "appendFile adds data to the end of a file, creating it when needed."
+  },
+  {
+    "id": "q025",
+    "topic": "File System",
+    "level": "intermediate",
+    "prompt": "Why is path.join() useful when building file paths?",
+    "options": [
+      "It minifies JavaScript",
+      "It creates platform-appropriate path separators",
+      "It opens an HTTP port",
+      "It encrypts filenames"
+    ],
+    "answer": 1,
+    "explanation": "path.join() combines path segments using conventions appropriate for the operating system."
+  },
+  {
+    "id": "q026",
+    "topic": "File System",
+    "level": "intermediate",
+    "prompt": "Which option allows fs.mkdir() to create missing parent directories?",
+    "options": [
+      "{ cache: true }",
+      "{ recursive: true }",
+      "{ stream: false }",
+      "{ commonjs: true }"
+    ],
+    "answer": 1,
+    "explanation": "The recursive option creates parent folders as needed and avoids failing when the directory already exists."
+  },
+  {
+    "id": "q027",
+    "topic": "File System",
+    "level": "intermediate",
+    "prompt": "Why are asynchronous fs methods preferred in a web server?",
+    "options": [
+      "They keep the event loop available while I/O is pending",
+      "They guarantee files never fail",
+      "They require Express",
+      "They always use less disk space"
+    ],
+    "answer": 0,
+    "explanation": "Asynchronous file operations avoid blocking the main JavaScript thread during disk I/O."
+  },
+  {
+    "id": "q028",
+    "topic": "File System",
+    "level": "advanced",
+    "prompt": "What is a common safer pattern when replacing an important JSON data file?",
+    "options": [
+      "Write directly one character at a time",
+      "Write a temporary file and rename it atomically",
+      "Use setTimeout instead of fs",
+      "Store the file in req.url"
+    ],
+    "answer": 1,
+    "explanation": "Writing to a temporary file and then renaming reduces the chance of leaving a partially written data file."
+  },
+  {
+    "id": "q029",
+    "topic": "File System",
+    "level": "advanced",
+    "prompt": "What information does fs.stat() provide?",
+    "options": [
+      "File metadata such as size and type",
+      "HTTP headers",
+      "npm dependency versions only",
+      "JavaScript syntax errors"
+    ],
+    "answer": 0,
+    "explanation": "fs.stat() returns metadata such as size, timestamps, and whether the path is a file or directory."
+  },
+  {
+    "id": "q030",
+    "topic": "File System",
+    "level": "advanced",
+    "prompt": "Why can checking fs.access() before opening a file be unsafe?",
+    "options": [
+      "It always blocks forever",
+      "The file can change between the check and the later operation",
+      "It disables permissions",
+      "It converts the path into a URL"
+    ],
+    "answer": 1,
+    "explanation": "A time-of-check/time-of-use race can occur. It is often safer to perform the operation directly and handle its error."
+  },
+  {
+    "id": "q031",
+    "topic": "Streams & Buffers",
+    "level": "beginner",
+    "prompt": "What is the main advantage of streams?",
+    "options": [
+      "They process data in chunks instead of loading everything at once",
+      "They remove the need for files",
+      "They make every operation synchronous",
+      "They replace package.json"
+    ],
+    "answer": 0,
+    "explanation": "Streams can process large data incrementally, reducing memory usage and enabling earlier processing."
+  },
+  {
+    "id": "q032",
+    "topic": "Streams & Buffers",
+    "level": "beginner",
+    "prompt": "Which method creates a readable file stream?",
+    "options": [
+      "fs.createReadStream()",
+      "fs.createServer()",
+      "fs.emitFile()",
+      "fs.makeBuffer()"
+    ],
+    "answer": 0,
+    "explanation": "createReadStream returns a readable stream for a file."
+  },
+  {
+    "id": "q033",
+    "topic": "Streams & Buffers",
+    "level": "beginner",
+    "prompt": "What does readable.pipe(writable) do?",
+    "options": [
+      "Deletes both streams",
+      "Connects data flow from the readable stream to the writable stream",
+      "Creates an HTTP status code",
+      "Converts CommonJS to ESM"
+    ],
+    "answer": 1,
+    "explanation": "pipe forwards chunks from a readable stream into a writable stream and manages basic flow control."
+  },
+  {
+    "id": "q034",
+    "topic": "Streams & Buffers",
+    "level": "intermediate",
+    "prompt": "What is backpressure in streams?",
+    "options": [
+      "A password policy",
+      "A signal that the consumer cannot keep up with the producer",
+      "A type of HTTP redirect",
+      "A module-resolution error"
+    ],
+    "answer": 1,
+    "explanation": "Backpressure prevents a fast producer from overwhelming a slower consumer with too much buffered data."
+  },
+  {
+    "id": "q035",
+    "topic": "Streams & Buffers",
+    "level": "intermediate",
+    "prompt": "Which stream type can both read and write?",
+    "options": [
+      "Readable",
+      "Writable",
+      "Duplex",
+      "Static"
+    ],
+    "answer": 2,
+    "explanation": "A Duplex stream implements both readable and writable sides."
+  },
+  {
+    "id": "q036",
+    "topic": "Streams & Buffers",
+    "level": "intermediate",
+    "prompt": "What is a Transform stream?",
+    "options": [
+      "A stream that modifies data while passing it through",
+      "A stream that only stores filenames",
+      "A timer phase",
+      "An npm registry"
+    ],
+    "answer": 0,
+    "explanation": "Transform streams are duplex streams whose output is derived from their input, such as compression or parsing."
+  },
+  {
+    "id": "q037",
+    "topic": "Streams & Buffers",
+    "level": "intermediate",
+    "prompt": "What is a Buffer mainly used for in Node.js?",
+    "options": [
+      "Representing raw binary data",
+      "Styling HTML",
+      "Creating SQL tables",
+      "Scheduling callbacks"
+    ],
+    "answer": 0,
+    "explanation": "Buffers store raw bytes and are commonly used with files, sockets, and streams."
+  },
+  {
+    "id": "q038",
+    "topic": "Streams & Buffers",
+    "level": "advanced",
+    "prompt": "Why is stream.pipeline() often preferred over manually chaining pipe() calls?",
+    "options": [
+      "It handles completion and forwards errors across the stream chain",
+      "It turns every stream into JSON",
+      "It disables backpressure",
+      "It requires Express"
+    ],
+    "answer": 0,
+    "explanation": "pipeline coordinates the streams and provides one place to handle completion and errors."
+  },
+  {
+    "id": "q039",
+    "topic": "Streams & Buffers",
+    "level": "advanced",
+    "prompt": "What does highWaterMark represent?",
+    "options": [
+      "A hard maximum file size",
+      "A buffering threshold used by a stream",
+      "The HTTP port number",
+      "The number of event listeners"
+    ],
+    "answer": 1,
+    "explanation": "highWaterMark is a threshold that influences when streams apply backpressure; it is not always a strict memory limit."
+  },
+  {
+    "id": "q040",
+    "topic": "Streams & Buffers",
+    "level": "advanced",
+    "prompt": "Why should code not assume each data chunk equals one full line or message?",
+    "options": [
+      "Chunk boundaries depend on buffering and transport details",
+      "Chunks are always encrypted",
+      "Buffers cannot contain text",
+      "Only Express can create lines"
+    ],
+    "answer": 0,
+    "explanation": "A logical record can be split across chunks or multiple records can appear in one chunk, so framing or parsing is required."
+  },
+  {
+    "id": "q041",
+    "topic": "Events",
+    "level": "beginner",
+    "prompt": "Which class is used for custom events in Node.js?",
+    "options": [
+      "EventEmitter",
+      "HttpRouter",
+      "FileController",
+      "PackageManager"
+    ],
+    "answer": 0,
+    "explanation": "EventEmitter from node:events is the standard class for publishing and listening to named events."
+  },
+  {
+    "id": "q042",
+    "topic": "Events",
+    "level": "beginner",
+    "prompt": "Which method registers a listener that runs every time an event is emitted?",
+    "options": [
+      "emitter.on()",
+      "emitter.end()",
+      "emitter.pipe()",
+      "emitter.writeFile()"
+    ],
+    "answer": 0,
+    "explanation": "on() attaches a listener that remains active until removed."
+  },
+  {
+    "id": "q043",
+    "topic": "Events",
+    "level": "beginner",
+    "prompt": "Which method triggers an event?",
+    "options": [
+      "emitter.emit()",
+      "emitter.listen()",
+      "emitter.require()",
+      "emitter.append()"
+    ],
+    "answer": 0,
+    "explanation": "emit() synchronously invokes listeners registered for the named event."
+  },
+  {
+    "id": "q044",
+    "topic": "Events",
+    "level": "intermediate",
+    "prompt": "How is emitter.once() different from emitter.on()?",
+    "options": [
+      "once() removes the listener after its first call",
+      "once() is asynchronous but on() is synchronous",
+      "once() only works with HTTP",
+      "once() creates a new process"
+    ],
+    "answer": 0,
+    "explanation": "A once listener automatically unregisters after the event is emitted for the first time."
+  },
+  {
+    "id": "q045",
+    "topic": "Events",
+    "level": "intermediate",
+    "prompt": "How are EventEmitter listeners called by emit()?",
+    "options": [
+      "Synchronously in registration order by default",
+      "Only in worker threads",
+      "Randomly",
+      "After the process exits"
+    ],
+    "answer": 0,
+    "explanation": "EventEmitter invokes listeners synchronously and generally in the order they were registered."
+  },
+  {
+    "id": "q046",
+    "topic": "Events",
+    "level": "intermediate",
+    "prompt": "What can happen when an EventEmitter emits 'error' without an error listener?",
+    "options": [
+      "Node.js may throw the error and terminate the process",
+      "The event is always ignored",
+      "The file is automatically repaired",
+      "The event changes into 'warning'"
+    ],
+    "answer": 0,
+    "explanation": "An unhandled 'error' event is treated specially and can crash the process."
+  },
+  {
+    "id": "q047",
+    "topic": "Events",
+    "level": "intermediate",
+    "prompt": "Which method can remove a previously registered listener?",
+    "options": [
+      "emitter.off()",
+      "emitter.read()",
+      "emitter.status()",
+      "emitter.resolve()"
+    ],
+    "answer": 0,
+    "explanation": "off() is an alias for removeListener() and requires the same function reference."
+  },
+  {
+    "id": "q048",
+    "topic": "Events",
+    "level": "advanced",
+    "prompt": "Why can an arrow function behave differently as an EventEmitter listener?",
+    "options": [
+      "It does not receive lexical this from the emitter",
+      "It cannot accept arguments",
+      "It always runs twice",
+      "It disables the event loop"
+    ],
+    "answer": 0,
+    "explanation": "Arrow functions use lexical this, so this will not automatically refer to the emitter as it can with a normal function listener."
+  },
+  {
+    "id": "q049",
+    "topic": "Events",
+    "level": "advanced",
+    "prompt": "What is one risk of continually adding listeners without removing them?",
+    "options": [
+      "A memory leak and MaxListenersExceededWarning",
+      "Automatic file deletion",
+      "HTTP 301 responses",
+      "npm uninstall"
+    ],
+    "answer": 0,
+    "explanation": "Accumulating listeners can retain objects and trigger Node.js warnings about possible memory leaks."
+  },
+  {
+    "id": "q050",
+    "topic": "Events",
+    "level": "advanced",
+    "prompt": "When an EventEmitter listener needs asynchronous work, what should it do?",
+    "options": [
+      "Explicitly schedule or await asynchronous operations inside the listener",
+      "Assume emit() awaits every listener",
+      "Call process.exit() first",
+      "Replace the emitter with fs"
+    ],
+    "answer": 0,
+    "explanation": "emit() itself does not await promises. The listener or calling design must handle asynchronous completion explicitly."
+  },
+  {
+    "id": "q051",
+    "topic": "CommonJS",
+    "level": "beginner",
+    "prompt": "Which function loads a CommonJS module?",
+    "options": [
+      "require()",
+      "include()",
+      "importFileSyncOnly()",
+      "attach()"
+    ],
+    "answer": 0,
+    "explanation": "CommonJS modules are loaded with require()."
+  },
+  {
+    "id": "q052",
+    "topic": "CommonJS",
+    "level": "beginner",
+    "prompt": "Which object is commonly used to expose values from a CommonJS module?",
+    "options": [
+      "module.exports",
+      "window.exports",
+      "request.exports",
+      "npm.exports"
+    ],
+    "answer": 0,
+    "explanation": "Assign exported functions or objects to module.exports."
+  },
+  {
+    "id": "q053",
+    "topic": "CommonJS",
+    "level": "beginner",
+    "prompt": "What is the purpose of splitting code into modules?",
+    "options": [
+      "To organize responsibilities and reuse code",
+      "To remove all asynchronous behavior",
+      "To avoid package.json",
+      "To make every file public"
+    ],
+    "answer": 0,
+    "explanation": "Modules help separate concerns, reuse functionality, and keep code easier to maintain."
+  },
+  {
+    "id": "q054",
+    "topic": "CommonJS",
+    "level": "intermediate",
+    "prompt": "What is the relationship between exports and module.exports at module start?",
+    "options": [
+      "exports initially references module.exports",
+      "They are unrelated globals",
+      "module.exports references req",
+      "exports is always a string"
+    ],
+    "answer": 0,
+    "explanation": "exports begins as a convenient reference to module.exports, but reassigning exports alone breaks that link."
+  },
+  {
+    "id": "q055",
+    "topic": "CommonJS",
+    "level": "intermediate",
+    "prompt": "Why can `exports = { value: 1 }` fail to export the object?",
+    "options": [
+      "It only reassigns the local exports variable",
+      "Objects cannot be exported",
+      "CommonJS only exports functions",
+      "The event loop blocks exports"
+    ],
+    "answer": 0,
+    "explanation": "Reassigning the local exports variable does not change module.exports. Use module.exports = {...} instead."
+  },
+  {
+    "id": "q056",
+    "topic": "CommonJS",
+    "level": "intermediate",
+    "prompt": "What does __dirname contain in a CommonJS module?",
+    "options": [
+      "The absolute directory path of the current module file",
+      "The current HTTP route",
+      "The npm package version",
+      "The user's browser URL"
+    ],
+    "answer": 0,
+    "explanation": "__dirname is the directory containing the current CommonJS module."
+  },
+  {
+    "id": "q057",
+    "topic": "CommonJS",
+    "level": "intermediate",
+    "prompt": "What usually happens when the same CommonJS module is required multiple times?",
+    "options": [
+      "Its exported value is normally returned from the require cache",
+      "It is downloaded from npm each time",
+      "The process restarts",
+      "All files are deleted"
+    ],
+    "answer": 0,
+    "explanation": "After the first load, CommonJS normally returns the cached module exports for later requires."
+  },
+  {
+    "id": "q058",
+    "topic": "CommonJS",
+    "level": "advanced",
+    "prompt": "Why can the node: prefix be useful, as in require('node:http')?",
+    "options": [
+      "It clearly selects the built-in module",
+      "It makes the module run in a browser",
+      "It disables caching",
+      "It adds Express automatically"
+    ],
+    "answer": 0,
+    "explanation": "The node: prefix explicitly identifies a Node.js built-in module."
+  },
+  {
+    "id": "q059",
+    "topic": "CommonJS",
+    "level": "advanced",
+    "prompt": "What can happen with circular CommonJS dependencies?",
+    "options": [
+      "A module may receive partially initialized exports",
+      "Node.js always rejects both files",
+      "Both modules become HTTP servers",
+      "The files are converted to JSON"
+    ],
+    "answer": 0,
+    "explanation": "During a circular load, one module can observe the other's exports before initialization has completed."
+  },
+  {
+    "id": "q060",
+    "topic": "CommonJS",
+    "level": "advanced",
+    "prompt": "How does require('./tool') differ from require('tool')?",
+    "options": [
+      "The first is a relative local path; the second is resolved as a core module or package",
+      "They are always identical",
+      "The first installs npm",
+      "The second reads an HTTP body"
+    ],
+    "answer": 0,
+    "explanation": "A leading ./ or ../ requests a local path, while a bare specifier is resolved as a built-in or package."
+  },
+  {
+    "id": "q061",
+    "topic": "npm & package.json",
+    "level": "beginner",
+    "prompt": "What is package.json used for?",
+    "options": [
+      "Project metadata, scripts, and dependency information",
+      "Only HTML styles",
+      "Operating-system passwords",
+      "HTTP response bodies only"
+    ],
+    "answer": 0,
+    "explanation": "package.json describes the package and can define scripts, dependencies, version, and other metadata."
+  },
+  {
+    "id": "q062",
+    "topic": "npm & package.json",
+    "level": "beginner",
+    "prompt": "Which command commonly creates a package.json interactively?",
+    "options": [
+      "npm init",
+      "node install-json",
+      "fs package",
+      "http init"
+    ],
+    "answer": 0,
+    "explanation": "npm init guides you through creating a package.json file."
+  },
+  {
+    "id": "q063",
+    "topic": "npm & package.json",
+    "level": "beginner",
+    "prompt": "Where is an npm start command defined?",
+    "options": [
+      "The scripts field in package.json",
+      "The CSS file",
+      "The HTTP status message",
+      "The EventEmitter cache"
+    ],
+    "answer": 0,
+    "explanation": "The scripts object maps names such as start and test to shell commands."
+  },
+  {
+    "id": "q064",
+    "topic": "npm & package.json",
+    "level": "intermediate",
+    "prompt": "What does `npm run test` do?",
+    "options": [
+      "Runs the command assigned to the test script",
+      "Downloads every npm package",
+      "Starts a browser automatically",
+      "Deletes node_modules"
+    ],
+    "answer": 0,
+    "explanation": "npm run executes a named script from package.json; npm test is a shortcut for the test script."
+  },
+  {
+    "id": "q065",
+    "topic": "npm & package.json",
+    "level": "intermediate",
+    "prompt": "What is package-lock.json mainly for?",
+    "options": [
+      "Recording the resolved dependency tree for repeatable installs",
+      "Storing quiz answers",
+      "Replacing package.json",
+      "Serving HTTP files"
+    ],
+    "answer": 0,
+    "explanation": "The lock file records exact resolved package information so installations are more reproducible."
+  },
+  {
+    "id": "q066",
+    "topic": "npm & package.json",
+    "level": "intermediate",
+    "prompt": "What is the usual difference between dependencies and devDependencies?",
+    "options": [
+      "Dependencies are needed at runtime; devDependencies are mainly for development and testing",
+      "devDependencies are always installed globally",
+      "Dependencies only contain CSS",
+      "There is no difference"
+    ],
+    "answer": 0,
+    "explanation": "Runtime packages belong in dependencies, while tooling used only during development commonly belongs in devDependencies."
+  },
+  {
+    "id": "q067",
+    "topic": "npm & package.json",
+    "level": "intermediate",
+    "prompt": "What does `npm ci` expect?",
+    "options": [
+      "An existing compatible lock file and a clean, reproducible install",
+      "A running HTTP server",
+      "No package.json",
+      "A global Express installation"
+    ],
+    "answer": 0,
+    "explanation": "npm ci installs from the lock file and is intended for clean, repeatable environments such as CI."
+  },
+  {
+    "id": "q068",
+    "topic": "npm & package.json",
+    "level": "advanced",
+    "prompt": "What does a caret range such as ^2.3.4 generally allow before version 3.0.0?",
+    "options": [
+      "Compatible updates that do not change the major version",
+      "Only exactly 2.3.4",
+      "Any major version",
+      "No installation"
+    ],
+    "answer": 0,
+    "explanation": "For a normal non-zero major version, the caret allows compatible minor and patch updates below the next major release."
+  },
+  {
+    "id": "q069",
+    "topic": "npm & package.json",
+    "level": "advanced",
+    "prompt": "Why should project scripts avoid depending on globally installed tools?",
+    "options": [
+      "Local devDependencies make the project more reproducible across machines",
+      "Global tools make Node.js synchronous",
+      "package.json cannot run global commands",
+      "Global tools disable files"
+    ],
+    "answer": 0,
+    "explanation": "Local tools and scripts reduce machine-specific assumptions and make setup more reliable."
+  },
+  {
+    "id": "q070",
+    "topic": "npm & package.json",
+    "level": "advanced",
+    "prompt": "Which package.json field can document supported Node.js versions?",
+    "options": [
+      "engines",
+      "viewport",
+      "headers",
+      "listeners"
+    ],
+    "answer": 0,
+    "explanation": "The engines field can state the Node.js versions a package expects, although enforcement depends on configuration."
+  },
+  {
+    "id": "q071",
+    "topic": "Errors & Process",
+    "level": "beginner",
+    "prompt": "What does process.env provide?",
+    "options": [
+      "Environment variables",
+      "HTTP request bodies",
+      "The module cache only",
+      "File contents"
+    ],
+    "answer": 0,
+    "explanation": "process.env exposes the environment variables available to the Node.js process."
+  },
+  {
+    "id": "q072",
+    "topic": "Errors & Process",
+    "level": "beginner",
+    "prompt": "What does process.argv contain?",
+    "options": [
+      "Command-line arguments",
+      "All event listeners",
+      "Installed npm packages",
+      "HTTP response headers"
+    ],
+    "answer": 0,
+    "explanation": "process.argv is an array containing the Node executable, script path, and additional command-line arguments."
+  },
+  {
+    "id": "q073",
+    "topic": "Errors & Process",
+    "level": "beginner",
+    "prompt": "What is the conventional first parameter in a Node.js error-first callback?",
+    "options": [
+      "err",
+      "result",
+      "request",
+      "port"
+    ],
+    "answer": 0,
+    "explanation": "Error-first callbacks use the first argument for an error and later arguments for successful results."
+  },
+  {
+    "id": "q074",
+    "topic": "Errors & Process",
+    "level": "intermediate",
+    "prompt": "Why will try/catch around fs.readFile() not directly catch an error passed later to its callback?",
+    "options": [
+      "The callback runs asynchronously after the surrounding try block has finished",
+      "fs.readFile never errors",
+      "try/catch only works in browsers",
+      "Errors are stored in package.json"
+    ],
+    "answer": 0,
+    "explanation": "Asynchronous callback errors must be handled in the callback or promise chain where they are delivered."
+  },
+  {
+    "id": "q075",
+    "topic": "Errors & Process",
+    "level": "intermediate",
+    "prompt": "What is a good way to report a startup failure without calling process.exit() immediately in deeply nested code?",
+    "options": [
+      "Set process.exitCode and allow cleanup to complete",
+      "Ignore the failure",
+      "Emit random events",
+      "Delete the lock file"
+    ],
+    "answer": 0,
+    "explanation": "Setting process.exitCode lets the process exit naturally after pending cleanup while still returning a failure code."
+  },
+  {
+    "id": "q076",
+    "topic": "Errors & Process",
+    "level": "intermediate",
+    "prompt": "What does process.cwd() return?",
+    "options": [
+      "The current working directory",
+      "The current module directory in every case",
+      "The CPU temperature",
+      "The package registry URL"
+    ],
+    "answer": 0,
+    "explanation": "process.cwd() returns the directory from which the Node.js process is currently running."
+  },
+  {
+    "id": "q077",
+    "topic": "Errors & Process",
+    "level": "intermediate",
+    "prompt": "Why should a server log errors with useful context?",
+    "options": [
+      "It helps diagnose which operation, route, or input failed",
+      "It makes errors impossible",
+      "It changes 500 into 200",
+      "It removes the need for validation"
+    ],
+    "answer": 0,
+    "explanation": "Contextual logs make failures easier to trace without exposing sensitive details to clients."
+  },
+  {
+    "id": "q078",
+    "topic": "Errors & Process",
+    "level": "advanced",
+    "prompt": "Why is it unsafe to continue normal operation after an uncaughtException?",
+    "options": [
+      "The process may be in an unknown or corrupted state",
+      "Node.js automatically repairs every resource",
+      "It clears all environment variables",
+      "It converts errors to warnings"
+    ],
+    "answer": 0,
+    "explanation": "An uncaught exception may leave application state inconsistent, so graceful shutdown and restart are generally safer."
+  },
+  {
+    "id": "q079",
+    "topic": "Errors & Process",
+    "level": "advanced",
+    "prompt": "What should happen to a rejected promise that cannot be handled locally?",
+    "options": [
+      "It should be propagated or handled by a deliberate top-level policy",
+      "It should always be ignored",
+      "It should be converted to CSS",
+      "It must call fs.readFileSync"
+    ],
+    "answer": 0,
+    "explanation": "Rejected promises should be awaited, caught, or intentionally propagated so failures are not silently lost."
+  },
+  {
+    "id": "q080",
+    "topic": "Errors & Process",
+    "level": "advanced",
+    "prompt": "What is a graceful server shutdown?",
+    "options": [
+      "Stop accepting new work, finish or time out active work, close resources, then exit",
+      "Call process.exit() before closing anything",
+      "Delete all data files",
+      "Return 404 to every request forever"
+    ],
+    "answer": 0,
+    "explanation": "Graceful shutdown coordinates resource cleanup and gives active requests a chance to complete before the process exits."
+  }
+]

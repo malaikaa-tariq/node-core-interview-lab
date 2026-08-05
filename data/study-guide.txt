@@ -1,0 +1,43 @@
+NODE/CORE STUDY GUIDE
+=====================
+
+HTTP
+- http.createServer receives an IncomingMessage and ServerResponse.
+- Request bodies are readable streams and must be bounded before parsing.
+- Set explicit status codes, headers and end each response exactly once.
+
+EVENT LOOP
+- Synchronous JavaScript runs before queued callbacks.
+- process.nextTick is drained before promise microtasks in Node.js.
+- Timers, poll and check are distinct libuv event-loop phases.
+- CPU-heavy work and synchronous APIs block unrelated requests.
+
+FILE SYSTEM
+- Prefer node:fs/promises for non-blocking application code.
+- For safer JSON persistence, write a complete temporary file and rename it.
+- Serialize concurrent read-modify-write operations to avoid lost updates.
+
+STREAMS
+- Streams process data in chunks instead of loading everything into memory.
+- Backpressure prevents a fast readable from overwhelming a slow writable.
+- pipeline() coordinates backpressure, errors, destruction and completion.
+
+EVENTS
+- EventEmitter invokes listeners synchronously in registration order.
+- An unhandled error event is special and can terminate the process.
+- once() uses wrapper semantics and listener removal needs careful identity handling.
+
+COMMONJS
+- require() loads and caches modules.
+- module.exports is the exported value; exports is initially an alias.
+- Circular dependencies can expose partially initialized exports.
+
+NPM
+- package.json contains metadata, scripts and dependency declarations.
+- Commit package-lock.json for repeatable dependency trees.
+- Use npm ci in CI when the lockfile is authoritative.
+
+PROCESS AND DEBUGGING
+- Use process signals for graceful shutdown.
+- Measure event-loop delay and utilization before guessing about latency.
+- Do not continue normal operation after an unknown corrupted state.

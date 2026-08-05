@@ -1,0 +1,288 @@
+[
+  {
+    "id": "1785961414128-37572e5ee437c",
+    "type": "interview:started",
+    "at": "2026-08-05T20:23:34.128Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "level": "advanced",
+    "count": 5
+  },
+  {
+    "id": "1785961424648-f21fb22a6711c",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:23:44.648Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-019",
+    "topic": "HTTP",
+    "score": 0
+  },
+  {
+    "id": "1785961432300-9e57e0b63e3cb",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:23:52.300Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-008",
+    "topic": "Runtime & Event Loop",
+    "score": 0
+  },
+  {
+    "id": "1785961439230-8bc4a9cf199aa",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:23:59.230Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-028",
+    "topic": "File System",
+    "score": 0
+  },
+  {
+    "id": "1785961460529-8be0a13ce7c558",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:24:20.529Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-stream-bugs",
+    "topic": "Streams & Buffers",
+    "score": 0
+  },
+  {
+    "id": "1785961477290-ed1243da6c963",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:24:37.290Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-events-emitter",
+    "topic": "Events",
+    "score": 0
+  },
+  {
+    "id": "1785961483422-c61a9941d091c8",
+    "type": "interview:completed",
+    "at": "2026-08-05T20:24:43.422Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "resultId": "09a6c67f-f7fb-4b02-b79e-a78ce617c44b",
+    "percentage": 0
+  },
+  {
+    "id": "1785961559380-1d91146d33b68",
+    "type": "interview:started",
+    "at": "2026-08-05T20:25:59.380Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "level": "advanced",
+    "count": 5
+  },
+  {
+    "id": "1785961576308-f78d6a580d1568",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:26:16.308Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-020",
+    "topic": "HTTP",
+    "score": 0
+  },
+  {
+    "id": "1785961614109-ed75f60ed3fa1",
+    "type": "interview:started",
+    "at": "2026-08-05T20:26:54.109Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "level": "beginner",
+    "count": 10
+  },
+  {
+    "id": "1785961619765-14ab9c1ca61a18",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:26:59.765Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-011",
+    "topic": "HTTP",
+    "score": 0
+  },
+  {
+    "id": "1785961625365-4c026b6bb8fb2",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:27:05.365Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-003",
+    "topic": "Runtime & Event Loop",
+    "score": 0
+  },
+  {
+    "id": "1785961636418-27572afffde398",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:27:16.418Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-022",
+    "topic": "File System",
+    "score": 0
+  },
+  {
+    "id": "1785961656797-141790fe85c99",
+    "type": "interview:started",
+    "at": "2026-08-05T20:27:36.797Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "level": "mixed",
+    "count": 8
+  },
+  {
+    "id": "1785961662181-e86dedb65a9c2",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:27:42.181Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-http-trace",
+    "topic": "HTTP",
+    "score": 0
+  },
+  {
+    "id": "1785961671872-15a087d3b50938",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:27:51.872Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-loop-order",
+    "topic": "Runtime & Event Loop",
+    "score": 0
+  },
+  {
+    "id": "1785961681755-454d6f7100f7e8",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:28:01.755Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-fs-atomic",
+    "topic": "File System",
+    "score": 0
+  },
+  {
+    "id": "1785961703400-d018a301eac788",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:28:23.400Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-036",
+    "topic": "Streams & Buffers",
+    "score": 2
+  },
+  {
+    "id": "1785961721003-0e41f13628efb",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:28:41.003Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "open-043",
+    "topic": "Events",
+    "score": 0
+  },
+  {
+    "id": "1785961737925-56b31111d4581",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:28:57.925Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-commonjs-cycle",
+    "topic": "CommonJS",
+    "score": 0
+  },
+  {
+    "id": "1785961748169-e231e775865678",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:29:08.169Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-npm-ci",
+    "topic": "npm & package.json",
+    "score": 0
+  },
+  {
+    "id": "1785961759402-e7c590a68e797",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:29:19.402Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "questionId": "featured-debug-latency",
+    "topic": "Errors & Process",
+    "score": 0
+  },
+  {
+    "id": "1785961761232-5d5e14b154c34",
+    "type": "interview:completed",
+    "at": "2026-08-05T20:29:21.232Z",
+    "learnerId": "b14bf2ec-81b1-4ab7-ab5e-01c2442df262",
+    "resultId": "b3404517-9a99-4b7a-aff7-5eec928dd50e",
+    "percentage": 0
+  },
+  {
+    "id": "1785962065479-fdb8c4544c395",
+    "type": "interview:started",
+    "at": "2026-08-05T20:34:25.479Z",
+    "learnerId": "test-learner-a",
+    "level": "mixed",
+    "count": 8
+  },
+  {
+    "id": "1785962065503-4407f6965dadd",
+    "type": "interview:started",
+    "at": "2026-08-05T20:34:25.503Z",
+    "learnerId": "test-no-repeat",
+    "level": "mixed",
+    "count": 10
+  },
+  {
+    "id": "1785962065545-626e99b7a3ef7",
+    "type": "interview:started",
+    "at": "2026-08-05T20:34:25.545Z",
+    "learnerId": "test-no-repeat",
+    "level": "mixed",
+    "count": 10
+  },
+  {
+    "id": "1785962065595-a98d0d1fc8e22",
+    "type": "interview:started",
+    "at": "2026-08-05T20:34:25.595Z",
+    "learnerId": "test-complete",
+    "level": "mixed",
+    "count": 5
+  },
+  {
+    "id": "1785962065625-89720a8523f7e8",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:34:25.625Z",
+    "learnerId": "test-complete",
+    "questionId": "featured-http-trace",
+    "topic": "HTTP",
+    "score": 15
+  },
+  {
+    "id": "1785962065646-feddadbc4574f",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:34:25.646Z",
+    "learnerId": "test-complete",
+    "questionId": "featured-loop-order",
+    "topic": "Runtime & Event Loop",
+    "score": 24
+  },
+  {
+    "id": "1785962065661-21c11cacdd00f8",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:34:25.661Z",
+    "learnerId": "test-complete",
+    "questionId": "featured-fs-atomic",
+    "topic": "File System",
+    "score": 15
+  },
+  {
+    "id": "1785962065671-8d2062a479786",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:34:25.671Z",
+    "learnerId": "test-complete",
+    "questionId": "featured-stream-bugs",
+    "topic": "Streams & Buffers",
+    "score": 14
+  },
+  {
+    "id": "1785962065697-e38d4e9ed8cd88",
+    "type": "answer:scored",
+    "at": "2026-08-05T20:34:25.697Z",
+    "learnerId": "test-complete",
+    "questionId": "featured-events-emitter",
+    "topic": "Events",
+    "score": 6
+  },
+  {
+    "id": "1785962065714-cf61fd4399cc28",
+    "type": "interview:completed",
+    "at": "2026-08-05T20:34:25.714Z",
+    "learnerId": "test-complete",
+    "resultId": "ed5036e2-1ba5-4706-bd42-edeb2663bc05",
+    "percentage": 15
+  }
+]

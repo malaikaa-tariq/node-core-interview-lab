@@ -1,0 +1,167 @@
+[
+  {
+    "id": "ed5036e2-1ba5-4706-bd42-edeb2663bc05",
+    "learnerId": "test-complete",
+    "learnerName": "Complete Learner",
+    "level": "mixed",
+    "percentage": 15,
+    "score": 15,
+    "totalQuestions": 5,
+    "durationSeconds": 1,
+    "weakTopic": "Events",
+    "topicBreakdown": [
+      {
+        "topic": "HTTP",
+        "assessed": true,
+        "score": 15
+      },
+      {
+        "topic": "Runtime & Event Loop",
+        "assessed": true,
+        "score": 24
+      },
+      {
+        "topic": "File System",
+        "assessed": true,
+        "score": 15
+      },
+      {
+        "topic": "Streams & Buffers",
+        "assessed": true,
+        "score": 14
+      },
+      {
+        "topic": "Events",
+        "assessed": true,
+        "score": 6
+      },
+      {
+        "topic": "CommonJS",
+        "assessed": false,
+        "score": null
+      },
+      {
+        "topic": "npm & package.json",
+        "assessed": false,
+        "score": null
+      },
+      {
+        "topic": "Errors & Process",
+        "assessed": false,
+        "score": null
+      },
+      {
+        "topic": "Code Quality",
+        "assessed": false,
+        "score": null
+      },
+      {
+        "topic": "Problem Solving",
+        "assessed": false,
+        "score": null
+      }
+    ],
+    "review": [
+      {
+        "questionId": "featured-http-trace",
+        "topic": "HTTP",
+        "level": "intermediate",
+        "type": "THEORY",
+        "title": "Trace an HTTP request",
+        "prompt": "Explain what happens from the moment this request reaches a Node.js process until the response is sent.",
+        "code": "POST /users/42?notify=true HTTP/1.1\nHost: localhost:3000\nContent-Type: application/json\nContent-Length: 30\n\n{\"name\":\"Maya\",\"role\":\"admin\"}",
+        "response": "I would use asynchronous Node.js core APIs, validate the request or input, handle errors, avoid blocking the event loop, explain the queue or stream behavior, and finish the response or operation safely with clear status codes and cleanup.",
+        "score": 15,
+        "matched": [],
+        "missing": [
+          "createServer request listener",
+          "method URL and query parsing",
+          "streamed request body",
+          "response construction",
+          "failure handling"
+        ],
+        "seniorAnswer": "http.createServer registers a request listener. For each request Node supplies an IncomingMessage readable stream and a ServerResponse writable response. Read req.method and parse req.url with new URL(req.url, base) to obtain pathname and searchParams. The body arrives asynchronously as chunks through data and end events, so enforce a byte limit before Buffer.concat and JSON.parse. Validate method, route, content type and payload, then set an appropriate status, headers and call res.end exactly once. Typical failures include 400 malformed JSON, 404 route not found, 405 unsupported method, 413 oversized body, 415 unsupported media type and 500 unexpected server failure."
+      },
+      {
+        "questionId": "featured-loop-order",
+        "topic": "Runtime & Event Loop",
+        "level": "intermediate",
+        "type": "OUTPUT PREDICTION",
+        "title": "Predict the exact order",
+        "prompt": "Write the exact output order, then justify every transition between queues and phases.",
+        "code": "console.log(\"A\");\nsetTimeout(() => console.log(\"B\"), 0);\nsetImmediate(() => console.log(\"C\"));\nPromise.resolve().then(() => console.log(\"D\"));\nprocess.nextTick(() => console.log(\"E\"));\nconsole.log(\"F\");",
+        "response": "I would use asynchronous Node.js core APIs, validate the request or input, handle errors, avoid blocking the event loop, explain the queue or stream behavior, and finish the response or operation safely with clear status codes and cleanup.",
+        "score": 24,
+        "matched": [
+          "synchronous order A then F"
+        ],
+        "missing": [
+          "nextTick before promise microtask",
+          "timer and immediate caveat",
+          "complete output"
+        ],
+        "seniorAnswer": "The guaranteed prefix is A, F, E, D. A and F are synchronous. After the stack clears Node drains process.nextTick before promise microtasks, so E precedes D. The relative order of B and C is not universally guaranteed when both are scheduled from top-level code: setTimeout is handled in the timers phase and setImmediate in the check phase, and timing may determine which becomes ready first. Inside an I/O callback, setImmediate commonly runs first."
+      },
+      {
+        "questionId": "featured-fs-atomic",
+        "topic": "File System",
+        "level": "intermediate",
+        "type": "CODING",
+        "title": "Atomic JSON persistence",
+        "prompt": "Design an async updateStore(file, mutate) function that safely reads, updates, and persists a JSON array.",
+        "code": "async function updateStore(file, mutate) {\n  // Your implementation\n}",
+        "response": "I would use asynchronous Node.js core APIs, validate the request or input, handle errors, avoid blocking the event loop, explain the queue or stream behavior, and finish the response or operation safely with clear status codes and cleanup.",
+        "score": 15,
+        "matched": [],
+        "missing": [
+          "fs promises read and parse",
+          "temporary file then rename",
+          "corrupt data handling",
+          "concurrency serialization",
+          "durability caveat"
+        ],
+        "seniorAnswer": "Use node:fs/promises to read and parse the array. Treat ENOENT as an empty store, but surface malformed JSON as a corruption error rather than silently replacing it. Apply mutate to a cloned value, write the complete JSON to a uniquely named temporary file in the same directory, optionally sync it for stronger durability, and rename it over the destination. Serialize updates per file with a promise queue so concurrent read-modify-write operations do not overwrite one another."
+      },
+      {
+        "questionId": "featured-stream-bugs",
+        "topic": "Streams & Buffers",
+        "level": "advanced",
+        "type": "DEBUGGING",
+        "title": "Find the stream bugs",
+        "prompt": "This copy utility appears to work. Identify its correctness and resource-management problems, then repair it.",
+        "code": "const input = fs.createReadStream(src);\nconst output = fs.createWriteStream(dest);\n\ninput.on(\"data\", chunk => output.write(chunk));\ninput.on(\"end\", () => output.end());\ninput.on(\"error\", console.error);",
+        "response": "I would use asynchronous Node.js core APIs, validate the request or input, handle errors, avoid blocking the event loop, explain the queue or stream behavior, and finish the response or operation safely with clear status codes and cleanup.",
+        "score": 14,
+        "matched": [],
+        "missing": [
+          "backpressure",
+          "errors on both sides",
+          "pipeline abstraction",
+          "completion semantics"
+        ],
+        "seniorAnswer": "Manual data/write wiring ignores backpressure: output.write can return false and the readable should pause until drain. The code also listens only for input errors and treats input end as full copy completion even though the destination may still be flushing. Use await pipeline(createReadStream(src), createWriteStream(dest)) from node:stream/promises. pipeline coordinates backpressure, propagates errors, destroys the chain when necessary and resolves only when the writable has completed."
+      },
+      {
+        "questionId": "featured-events-emitter",
+        "topic": "Events",
+        "level": "advanced",
+        "type": "IMPLEMENTATION",
+        "title": "Build a minimal EventEmitter",
+        "prompt": "Implement on, once, emit and removeListener without using node:events.",
+        "code": "class TinyEmitter {\n  // Preserve listener order and correct once semantics\n}",
+        "response": "I would use asynchronous Node.js core APIs, validate the request or input, handle errors, avoid blocking the event loop, explain the queue or stream behavior, and finish the response or operation safely with clear status codes and cleanup.",
+        "score": 6,
+        "matched": [],
+        "missing": [
+          "event-to-listener storage",
+          "stable emit iteration",
+          "once wrapper identity",
+          "error event semantics",
+          "chainable methods"
+        ],
+        "seniorAnswer": "Store listeners in a Map from event name to arrays. on appends and returns this. emit should iterate a shallow copy so listeners may add or remove handlers without corrupting the active iteration. once should install a wrapper that removes itself before invoking the original function, while retaining a reference to the original so removeListener(original) can find it. If error is emitted without an error listener, mirror Node by throwing because silent infrastructure errors are unsafe."
+      }
+    ],
+    "completedAt": "2026-08-05T20:34:25.708Z"
+  }
+]
