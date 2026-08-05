@@ -38,7 +38,7 @@ When PowerShell already displays a path ending in `node-core-interview-lab>`, do
 - Streamed study guide and streamed text report download
 - Responsive desktop, tablet, and mobile layouts
 
-## Assignment requirement mapping
+## Requirement mapping
 
 | Requirement | Implementation |
 |---|---|
