@@ -21,7 +21,7 @@ When PowerShell already displays a path ending in `node-core-interview-lab>`, do
 
 ## Main features
 
-- Screenshot-inspired cream, black, and neon-green interview interface
+- Cream, black, and neon-green interview interface
 - Foundation, Practitioner, Senior, and Adaptive levels
 - 5-question quick check, 8-question deep dive, or 10-question full map
 - 100 Node.js technical challenges
