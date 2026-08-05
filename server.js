@@ -42,11 +42,23 @@ const server = http.createServer(async (req, res) => {
   }
 });
 
-server.listen(PORT, HOST, () => {
+const onListening = () => {
   const address = server.address();
-  console.log(`NODE/CORE Interview Lab: http://localhost:${address.port}`);
-  console.log('Node.js core only â€” no Express and no runtime dependencies.');
-});
+
+  const location =
+    typeof address === 'object' && address
+      ? `http://localhost:${address.port}`
+      : String(address);
+
+  console.log(`NODE/CORE Interview Lab: ${location}`);
+  console.log('Node.js core only — no Express and no runtime dependencies.');
+};
+
+if (process.env.VERCEL) {
+  server.listen(PORT, onListening);
+} else {
+  server.listen(PORT, HOST, onListening);
+}
 
 function shutdown(signal) {
   console.log(`\n${signal} received. Closing HTTP server...`);
